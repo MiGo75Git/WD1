@@ -1,0 +1,175 @@
+/* ------ lokalne variable za uporabo v vseh stilih -------- */
+:root {
+    --big_button_color: #3ba5af ;
+    --big_button_color_text: #black;
+    --big_button_back_color: #56af53;
+    --big_button_back_color_text: #56af53 ;
+
+    --small_button_color: #6674af;
+    --small_button_color_text: rgb(255, 255, 255);
+
+}
+
+/* ------ osnovni elementi ------ */
+p {
+    font-size: 24px;
+    color: black;
+}
+li {
+    font-size: 20px;
+}
+
+/* ------ LINKI ------ */
+.a {
+  color: blue;   /* unvisited link */
+}
+.a:visited {
+  color: green; /* visited link */
+}
+.a:hover {
+  color: red;  /* mouse over link */
+}
+.a:active {
+  color: aqua; /* selected link */
+}
+
+/*  primer po id#-ju --> */
+#yellow {
+    color:yellowgreen;
+}
+
+/* primeri s class */
+.big_button {
+    background-color: var(--big_button_color);
+    color: var(--big_button_color_text);
+    border: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 2px solid;
+    border-color: var(--big_button_color);
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding: 15px;
+    margin: 5px;
+    max-width: 400px;
+    width: 50%;
+}
+
+.big_button:hover {
+    background-color: var(--big_button_color_text);
+    color: var(--big_button_color_text);
+    border: 2px solid ;
+    border-color: var(--big_button_color);
+}
+
+.small_button {
+    background-color: var(--small_button_color);
+    color: var(--small_button_color_text);
+    border: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 2px solid;
+    border-color: var(--big_button_color);
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding: 15px;
+    margin: 5px;
+    max-width: 250px;
+    min-width: 250px;
+}
+
+.small_button:hover {
+    background-color: var(--big_button_color_text);
+    color: var(--big_button_color_text);
+    border: 2px solid ;
+    border-color: var(--big_button_color);
+}
+
+
+
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center_85 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+}
+
+/* data grid šminkanje */
+.datagrid {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 18px;
+}
+
+.datagrid td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.datagrid tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.datagrid tr:hover {
+    background-color: #ddd;
+}
+
+.datagrid th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+/*
+  Slika menjava, ko si na njej z miško
+  Make the container relative
+*/
+.swap-on-hover {
+    position: relative;
+	margin:  0 auto;
+	max-width: 218px;
+}
+
+/*
+  Select the image and make it absolute to the container
+  We set z-index to be higher than the back image, so it's alwyas on the front.
+ */
+.swap-on-hover img {
+    position: absolute;
+    overflow: hidden;
+}
+/*
+  We give it an opacity leaner to .25s, that way when we hover we will get a nice fading effect.
+*/
+.swap-on-hover .swap-on-hover__front-image {
+    z-index: 9999;
+    transition: opacity 5s ease-out;
+    cursor: pointer;
+}
+
+/*
+transition: opacity 1.2s linear;
+transition: opacity 1.2s ease-out;
+
+  When we hover the figure element, the block with .swap-on-hover, we want to use > so the
+  front-image is going to have opacity of 0, which means it will be hidden, to the back image
+  will show.
+*/
+.swap-on-hover:hover > .swap-on-hover__front-image {
+  opacity: 0;
+}
