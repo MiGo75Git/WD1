@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Material design sample page</title>
+
+
+    <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+
+<body>
+    <h6>naslov </h6>
+    <p style="height: auto; width:auto; border-width: thick; border-color: #cddc39"> Tkaj nekaj piše</p>
+    <box size="auto">
+    </box>
+
+    <div align="center" margin="20" height="auto" >
+        <box border-width="2" border-bottom-color="#3a3a3a">
+            <button class="mdc-button foo-button">
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">Button</span>
+            </button>
+        </box>
+    </div>
+    <p>
+        <h3> Tole je potrebno dadi v scripto !!</h3>
+        <code>
+            mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button'));
+        </code>
+    </p>
+
+</body>
+</html>
