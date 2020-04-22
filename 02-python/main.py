@@ -3,11 +3,10 @@ SECRET_NUM = 123
 
 def choose_app():
     menu_selection = 0
-    while menu_selection != 1 or menu_selection != 2 or menu_selection != 3 or menu_selection != 0:
+    while True:
         try:
             choose_app_draw()
             menu_selection = int(input("Selected option please: "))
-
             if menu_selection == 1:
                 mood_dialog()
             elif menu_selection == 2:
@@ -16,6 +15,8 @@ def choose_app():
                 calculator()
             elif menu_selection == 0:
                 return
+            else:
+                print("Invalid selection, get real !!")
         except:
             print("An exception occurred")
 
@@ -84,15 +85,11 @@ def calculator():
         - IN FUTURE: dva arraya numbers[],operators[] + procesiranje ??
 
         - na koncu izpis računa in rezultata
-        num_1
-        num_2
-        =+-/*
-        result = x (num_1 = num_2 = 0 )
 
-        če je samo result
-        in sta num_1 in num_2 = 0
-        in je =+-/*
-        velja num_1 = result in operacija
+        TODO: Fix this bug for * and /
+        KNOWN BUGS: At the end displaying equation is wrong
+        now: 2+4+2*10=80
+        ok : (2+4+2)*10=80
 
     """
     end_loop = False
