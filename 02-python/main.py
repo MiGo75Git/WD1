@@ -90,6 +90,7 @@ def calculator():
         KNOWN BUGS: At the end displaying equation is wrong
         now: 2+4+2*10=80
         ok : (2+4+2)*10=80
+        HOW: at operation * or / put string in brackets, but be aware of last position (multiple brackets)
 
     """
     end_loop = False
