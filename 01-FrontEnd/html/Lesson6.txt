@@ -1,0 +1,27 @@
+16/4/2020
+
+Ali se CSS class-i dedujejo na podstran oz. stran katero sem odprl z linkom ? 
+Ali je vsaka stran svoje okolje ? 
+
+Frontend & GIT recap
+
+
+- viewport
+- CSS animacije
+- JQuery uvod
+
+- React,Angluar View (JavaScript frameworki) so danes bolj v uporabi kot JQuery
+
+
+https://developer.mozilla.org/
+https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+
+
+20.4.20202
+
+python
+
+https://www.codecademy.com/
+https://www.codewars.com/?language=python
