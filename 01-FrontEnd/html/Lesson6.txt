@@ -10,18 +10,10 @@ Frontend & GIT recap
 - CSS animacije
 - JQuery uvod
 
-- React,Angluar View (JavaScript frameworki) so danes bolj v uporabi kot JQuery
+- React,Angluar,View (JavaScript frameworki) so danes bolj v uporabi kot JQuery
 
 
 https://developer.mozilla.org/
 https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
-
 https://developer.mozilla.org/en-US/docs/Web/CSS/animation
 
-
-20.4.20202
-
-python
-
-https://www.codecademy.com/
-https://www.codewars.com/?language=python
