@@ -1,0 +1,12 @@
+16:47 23. 04. 2020
+
+for x in range(5):   ---> je kot for x in [0,1,2,3,4]:
+    break  - izhod iz zanke v vsakem primeru ne glede na x
+
+    continue - 
+
+poglej si tr except na koncu predavanja še 1x 
+Funkcije !!
+
+
+

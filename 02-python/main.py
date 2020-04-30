@@ -1,4 +1,28 @@
-SECRET_NUM = 123
+import random as rnd
+
+# import only system from os
+from os import system, name
+
+# import sleep to show output for some time period
+from time import sleep
+
+import msvcrt
+
+secret_num_min = 0
+secret_num_max = 25
+secret_num = rnd.randrange(secret_num_min, secret_num_max, 1)
+
+
+# define our clear function
+def clear():
+    sleep(3)
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+        # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 
 
 def choose_app():
@@ -13,29 +37,28 @@ def choose_app():
                 secret_number()
             elif menu_selection == 3:
                 calculator()
+            elif menu_selection == 4:
+                operations_on_strings()
+            elif menu_selection == 5:
+                miles_to_km_converter()
+            elif menu_selection == 6:
+                fizz_buzz()
             elif menu_selection == 0:
                 return
             else:
                 print("Invalid selection, get real !!")
+            clear()
         except:
-            print("An exception occurred")
+            print("An exception occur red")
 
 
 def choose_app_draw():
-    """
-        trying to get effect like CLS Clear Screen in console , cursor position top, left
-
-        from os import system, name
-        system("cls")
-
-        print("\033[H\033[J")
-
-        cls()
-    """
-
     print("1 - Mood dialog")
-    print("2 - Secret number [{}]".format(SECRET_NUM))
+    print("2 - Secret number [{0}-{1}]".format(secret_num_min, secret_num_max))
     print("3 - Calculator")
+    print("4 - String lowercase,join,formatting, etc...")
+    print("5 - Convert km in miles")
+    print("6 - FizzBuzz ")
     print("0 - Exit")
 
 
@@ -59,31 +82,30 @@ def mood_dialog():
 
 def secret_number():
     secret_number_input = 0
-    while secret_number_input == 0:
+    number_of_retries = 5
+    counted_retries = 1
+    while not (number_of_retries < counted_retries):
         try:
-            secret_number_input = int(input("Input secret number [xxx]: "))
+            secret_number_input = int(input(
+                "Input secret number range[{0}-{1}]. Attemp[{2}]".format(secret_num_min, secret_num_max,
+                                                                         counted_retries)))
+            counted_retries = counted_retries + 1
 
-            if secret_number_input == SECRET_NUM:
+            if secret_number_input == secret_num:
                 print("Congratulate !")
             elif secret_number_input == 0:
                 print("Are you awake ?")
-            elif secret_number_input > SECRET_NUM:
+            elif secret_number_input > secret_num:
                 print("You are too high !")
-            elif secret_number_input < SECRET_NUM:
+            elif secret_number_input < secret_num:
                 print("You are too low !")
-
         except:
             print("An exception occurred")
 
 
 def calculator():
     """
-        - loop dokler ni input prazno polje ali '='?
-        - če je string enak dolžini 1 in je eden od '+-*/' je operator, drugače ignore
-        - če je string daljši od 0 znakov in je številka +155 ali -5545, če ni število Error
-
         - IN FUTURE: dva arraya numbers[],operators[] + procesiranje ??
-
         - na koncu izpis računa in rezultata
 
         TODO: Fix this bug for * and /
@@ -91,7 +113,6 @@ def calculator():
         now: 2+4+2*10=80
         ok : (2+4+2)*10=80
         HOW: at operation * or / put string in brackets, but be aware of last position (multiple brackets)
-
     """
     end_loop = False
     result = None
@@ -122,6 +143,11 @@ def calculator():
                     elif input_string == "/":
                         input_operation = "/"
 
+                    elif input_string == "=":
+                        input_operation = "="
+                        print("Result: {0}{1}{2}".format(equation, "=", result))
+                        end_loop = True
+
                     is_current_input_number = True
 
                 else:
@@ -137,6 +163,7 @@ def calculator():
                             is_current_input_number = False
                             equation = "{0}".format(first_number)
                         else:
+
                             if input_operation == "-":
                                 result = first_number - input_number
 
@@ -172,5 +199,124 @@ def calculator():
         except:
             print("An exception occurred in main loop of calculator")
 
+
+def operations_on_strings():
+    test = "Testna variabla"
+
+    print("Lesson9")
+    print(f"Kaj {test}")
+
+    str_one = "Happy"
+    str_two = "Day"
+
+    # We can join them with a plus:
+    print(str_one + str_two)  # result: HappyDay
+
+    # We can add a string in-between:
+    print(str_one + " " + str_two)  # result: Happy Day
+
+    # We can use % s to add them in a string:
+    print("%s %s" % (str_one, str_two))
+
+    # We can use %s to add them in a string:
+    print("%s %s" % (str_one, str_two))
+
+    # Or, we can use the format() method, with placeholders like {0}:
+    print("{0} {1}".format(str_one, str_two))
+
+    # The format function can also be used a bit differently:
+    print("{first} {second_str}".format(first=str_one, second_str=str_two))
+
+    # The newest way of formatting strings is called f-string and it looks like this:
+    print(f"{str_one} {str_two}")
+
+    # lower case
+    print(f"{str_one} {str_two}".lower())
+
+    # upper case
+    print(f"{str_one} {str_two}".lower())
+
+    # center string with padding
+    print(f"{str_one} {str_two}".center(100, "-"))
+
+    # SWAP CaSe
+    print(f"{str_one} {str_two}".swapcase())
+
+
+def miles_to_km_converter():
+    ONE_MILE_KM_FACTOR: float = 0.62137
+    stop_loop = False
+
+    print("Welcome !")
+    print("This is km to miles converter. Input km and you will get lenght in miles.")
+
+    while not stop_loop:
+
+        try:
+            input_string = input("Input kilometers please: ")
+            kilometers = float(input_string.replace(",", "."))
+            miles = kilometers * ONE_MILE_KM_FACTOR
+            print(f"{kilometers} km is equal to {miles} miles.")
+        except:
+            print("Please insert valid float number")
+
+        sleep(1)
+
+        while True:
+            answer_to_continue = input("Do you want convert again ? [y/n]")
+            if answer_to_continue.lower() == "n":
+                stop_loop = True
+                break
+
+            elif answer_to_continue.lower() == "y":
+                stop_loop = False
+                break
+
+            else:
+                print("Please select [y] or [n] !!")
+
+    print("Goodbye ...")
+
+
+def fizz_buzz():
+    count_by_div_3 = 0
+    count_by_div_5 = 0
+    count_by_div_3_5 = 0
+
+    while True:
+        try:
+            input_number = int(input("Input number between [1-100]: "))
+            if input_number < 1:
+                print("Number is too low.")
+            elif input_number > 100:
+                print("Number is to high.")
+            else:
+                break
+        except:
+            print("Enter valid number")
+
+    for i in range(input_number):
+        left_by_div_3 = i % 3
+        left_by_div_5 = i % 5
+        if i >= 3:
+            if left_by_div_3 == 0 and left_by_div_5 == 0:
+                print(f"{i} Fizz/Fuzz [/5 and /3 = OK]")
+                count_by_div_3_5 = count_by_div_3_5 + 1
+
+            elif left_by_div_5 == 0:
+                print(f"{i} Fuzz [/5 = OK]")
+                count_by_div_5 = count_by_div_5 + 1
+
+            elif left_by_div_3 == 0:
+                print(f"{i} Fizz [/3 = OK]")
+                count_by_div_3 = count_by_div_3 + 1
+            else:
+                print(f"{i}")
+        else:
+            print(f"{i} - too low")
+
+    print(f"Info: {count_by_div_3}-[/3 = OK] {count_by_div_5}-[/5 = OK] {count_by_div_3_5}-[/5 and /3 = OK]")
+    print("Successfully ended.")
+    sleep(5)
 
 choose_app()
